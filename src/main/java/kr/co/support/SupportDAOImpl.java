@@ -15,23 +15,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SupportDAOImpl implements SupportDAO {
 
-	/// 싱글톤 제거(Spring이 싱글톤 제공한다)
-	/*
-	 * private static SupportDAOImpl sDAO;
-	 * 
-	 * private SupportDAOImpl() { }// SupportDAOImpl
-	 * 
-	 * public static SupportDAOImpl getInstance() { if (sDAO == null) { sDAO = new
-	 * SupportDAOImpl(); } // end if return sDAO;
-	 * 
-	 * }// getInstance
-	 */
-
-	/// DI, 커넥션관리, 예외처리 및 트랜잭션 연계를 위한 jdbc 고도화.
-//	public static Connection getConnection() throws SQLException {
-//		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
-//	}// getConnection
-
 	private final DataSource dataSource;
 
 	@Autowired
@@ -40,7 +23,7 @@ public class SupportDAOImpl implements SupportDAO {
 	}
 
 	public Connection getConnection() throws SQLException {
-		return dataSource.getConnection(); // 커넥션 풀에서 가져옴
+		return dataSource.getConnection();
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------------------------------

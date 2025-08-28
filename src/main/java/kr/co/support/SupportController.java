@@ -19,12 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class SupportController {
 
-	/// 추상클래스 활용 보완 필요 -> 엄밀히는! 인터페이스 DI로 구현해야 한다.
+	/// 추상클래스 활용 보완 필요
 	private final SupportServiceImpl supportService;
-
-//	public SupportController(SupportServiceImpl supportService, NoticeDTO noticeDTO) {
-//		this.supportService = supportService;
-//	}
 
 	// JDBC 기반 고도화 -> POJO DTO
 	public SupportController(SupportServiceImpl supportService) {
